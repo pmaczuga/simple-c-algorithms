@@ -1,4 +1,4 @@
-file(GLOB files "*/test_*.c")
+file(GLOB files "tests/test_*.c" "tests/*/test_*.c")
 
 foreach(file ${files})
 	string(REGEX REPLACE "(^.*/|\\.[^.]*$)" "" file_without_ext ${file})

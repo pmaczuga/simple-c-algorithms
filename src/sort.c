@@ -52,6 +52,21 @@ void selection_sort(void *arr, size_t size, size_t elem_size, int compare(const 
 }
 
 
+void bubble_sort(void *arr, size_t size, size_t elem_size, int compare(const void *a, const void *b))
+{
+    for (unsigned int i = 0; i < size - 1; i++)
+    {
+        for (unsigned int j = 0; j < size-i-1; j++)
+        {
+            void *a = get_elem(arr, elem_size, j);
+            void *b = get_elem(arr, elem_size, j+1);
+            if (compare(a, b) > 0)
+                swap(a, b, elem_size);
+        }
+    }
+}
+
+
 void _merge_sort(void *arr, int p, int q, size_t elem_size, int compare(const void  *a, const void *b));
 void _merge(void *arr, int p, int q, int r, size_t elem_size, int compare(const void  *a, const void *b));
 
@@ -80,13 +95,13 @@ void _merge(void *arr, int p, int q, int r, size_t elem_size, int compare(const 
     int j = 0;
     for (int i = p; i <= q; i++)
     {
-        memcpy(get_elem(arr, elem_size, j), get_elem(left, elem_size, i), elem_size);
+        memcpy(get_elem(left, elem_size, j), get_elem(arr, elem_size, i), elem_size);
         j++;
     }
     j = 0;
     for (int i = q+1; i <= r; i++)
     {
-        memcpy(get_elem(arr, elem_size, j), get_elem(right, elem_size, i), elem_size);
+        memcpy(get_elem(right, elem_size, j), get_elem(arr, elem_size, i), elem_size);
         j++;
     }
 

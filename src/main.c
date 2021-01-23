@@ -40,32 +40,10 @@ int main(int argc, char *argv[])
         second[i] = value;
         third[i] = value;
     }
-
-    clock_t start;
-    clock_t end;
-    float seconds;
-
-    start = clock();
-    insertion_sort((void *)first, SIZE, sizeof(int), cmp);
-    end = clock();
-    seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Inertion sort took: %f sedonds\n", seconds);
-
-    start = clock();
-    selection_sort((void *)second, SIZE, sizeof(int), cmp);
-    end = clock();
-    seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Selection sort took: %f sedonds\n", seconds);
-
-    start = clock();
-    merge_sort((void *)third, SIZE, sizeof(int), cmp);
-    end = clock();
-    seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Merge sort took: %f sedonds\n", seconds);
-
-    free(first);
-    free(second);
-    free(third);
+    int arr[10] = {2,1,5,4,7,5,2,13,11,10};
+    print_array(arr, 10);
+    merge_sort(arr, 10, sizeof(int), cmp);
+    print_array(arr, 10);
 
     return 0;
 }

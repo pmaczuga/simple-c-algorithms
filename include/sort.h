@@ -7,6 +7,8 @@ void insertion_sort(void *arr, size_t size, size_t elem_size, int compare(const 
 
 void selection_sort(void *arr, size_t size, size_t elem_size, int compare(const void  *a, const void *b));
 
+void bubble_sort(void *arr, size_t size, size_t elem_size, int compare(const void *a, const void *b));
+
 void merge_sort(void *arr, size_t size, size_t elem_size, int compare(const void  *a, const void *b));
 
 #endif
